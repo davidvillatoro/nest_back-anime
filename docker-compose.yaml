@@ -1,0 +1,17 @@
+
+version: '3.8'
+
+services:
+  anime-db:
+    container_name: anime-database
+    image: postgres:15.3
+    restart: always
+    volumes:
+      - ./postgres:/var/lib/postgresql/database
+    ports:
+      - 5432:5432
+    environment:
+       POSTGRES_USER: ${DB_USER}
+       POSTGRES_PASSWORD: ${DB_PASSWORD}
+       POSTGRES_DB: ${DB_DB}
+   
